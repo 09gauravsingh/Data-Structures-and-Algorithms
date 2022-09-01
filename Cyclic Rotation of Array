@@ -18,3 +18,4 @@ def cyclicRotation(arr: List[int], n: int, k: int) -> List[int]:
        left, right = left+1, right-1                
     
    return arr
+ 
