@@ -1,1 +1,20 @@
 
+def cyclicRotation(arr: List[int], n: int, k: int) -> List[int]:
+   k = k % len(arr)
+   
+   left, right = 0, len(arr)-1
+   while left < right:
+       arr[left], arr[right] = arr[right], arr[left]
+       left, right = left+1, right-1
+
+   left, right = 0, k-1
+   while left < right:
+       arr[left], arr[right] = arr[right], arr[left]
+       left, right = left+1, right-1
+ 
+   left, right = k, len(arr)-1
+   while left < right:
+       arr[left], arr[right] = arr[right], arr[left]
+       left, right = left+1, right-1                
+    
+   return arr
