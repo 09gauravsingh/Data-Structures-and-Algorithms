@@ -1,0 +1,36 @@
+from typing import List
+
+def findElementQuery(n: int, arr: List[int], x: int) -> int:
+    left_index = 0
+    right_index = len(arr)-1
+    mid_index = 0
+    li=[]
+
+    while left_index < right_index:
+        mid_index = (left_index + right_index) // 2
+        mid_value = arr[mid_index]
+        if(mid_value == x):
+            return mid_index
+        if(mid_value > x):
+            right_index = mid_index-1
+        else:
+            left_index = mid_index + 1
+
+    return -1                
+
+
+
+# NOTE: Please do not modify this function
+def main():
+    n = int(input().strip())
+    arr = list(map(int, input().strip().split(' ')))
+    q = int(input().strip())
+
+    for i in range(q):
+        x = int(input().strip())
+        result = findElementQuery(n, arr, x)
+        print(result)
+
+
+if __name__ == "__main__":
+    main()
