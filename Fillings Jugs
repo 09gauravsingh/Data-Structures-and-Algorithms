@@ -1,0 +1,19 @@
+def fillingJugs(n, arr):
+    for i in range(1, n):
+        if arr[i-1] <= arr[i]:
+            arr[i] = arr[i-1]
+
+    return sum(arr)                   
+        
+
+
+def main():
+    t = int(input())
+    for _ in range(t):
+        n = int(input())
+        arr = list(map(int, input().strip().split(' ')))
+        ans = fillingJugs(n, arr)
+        print(ans)
+
+if __name__ == '__main__':
+    main()
