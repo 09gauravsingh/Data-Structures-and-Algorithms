@@ -1,0 +1,28 @@
+def passCode(A: str, B: str) -> str:
+    i,j=0,0
+    code = ""
+    while(i<len(A) and j<len(B)):
+        code+=A[i]
+        code+=B[j]
+        i+=1
+        j+=1
+    while(i<len(A)):
+        code+=A[i]
+        i+=1
+    
+    while(j<len(B)):
+        code+=B[j]
+        j+=1
+
+    return code
+
+def main():
+    A = input()
+    B = input()
+    print(passCode(A, B))
+    
+
+if __name__=="__main__":
+    main()
+
+
