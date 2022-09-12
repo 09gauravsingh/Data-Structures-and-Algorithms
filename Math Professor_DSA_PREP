@@ -1,0 +1,28 @@
+from typing import List
+def mathProfessor(n: int, v: List[str], B: str) -> List[int]:
+    ans = list()
+    for i in range(n):
+        vv = set(v[i])
+        count = 0
+        for b in set(B):
+            if b in vv:
+                count+=1
+        ans.append(count)
+    return ans            
+
+
+
+def main():
+    n = int(input())
+    B = input()
+    v = []
+    temp = ""
+    for i in range(n):
+        temp = input()
+        v.append(temp)
+    ans = mathProfessor(n, v, B)
+    print(*ans)
+    
+
+if __name__=="__main__":
+    main()
