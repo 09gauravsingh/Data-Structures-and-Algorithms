@@ -1,0 +1,19 @@
+from typing import List
+
+def longestCommonPrefix(strs: List[str]) -> str:
+    index=0
+    retStr=""
+    while True:
+        chars = list()
+        for str in strs:
+            chars.append(str[index])
+        if len(set(chars))==1:
+            retStr+=strs[0][index]
+            index+=1
+        else:
+            break
+    return retStr
+if __name__ == '__main__':
+    strs = input().split()
+    result = longestCommonPrefix(strs)
+    print(result)
