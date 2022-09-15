@@ -1,0 +1,32 @@
+from typing import List
+
+def classRepresentative(numbers: List[int]) -> str:
+    n = 0
+    ans=list()
+    for i in range(0,len(numbers),2):
+        ans.append(numbers[i])
+
+    for i in range(len(ans)-1):
+        if ans[i]>ans[i+1]:
+            n+=1
+            
+        elif ans[i]<ans[i+1]:
+            n-=1
+    l=len(ans)
+    if n==l-1:
+        return "decreasing"
+    elif n==-1*(l-1):
+        return "increasing"
+    else:
+        return "none"      
+    
+    
+    
+
+def main():
+    n = int(input())
+    numbers = list(map(int,input().strip().split()))
+    print(classRepresentative(numbers))
+
+if __name__=="__main__":
+    main()
