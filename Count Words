@@ -1,0 +1,30 @@
+from typing import List
+def countWords(sentence: str, n: int, words: List[str]) -> int:
+    freq = dict()
+    for word in words:
+        count = 0
+        for sent in sentence.split():
+            if word == sent:
+                count += 1
+        freq[word] = count
+
+    newCount = 0
+    for word in freq.keys():
+        if freq[word] > 0:
+            newCount += 1
+    return newCount        
+
+
+
+
+        
+
+def main():
+    sentence = input()
+    n = int(input())
+    words = input().split()
+    print(countWords(sentence, n, words))
+    
+
+if __name__=="__main__":
+    main()
