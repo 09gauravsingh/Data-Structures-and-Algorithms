@@ -1,0 +1,23 @@
+from typing import List
+def findTheDuplicateNumber(nums: List[int]) -> int:
+    counter = dict()
+    for num in nums:
+        if num not in counter.keys():
+            counter[num] = 1
+        else:
+            counter[num] += 1
+
+    for num in counter.keys():
+        if counter[num] > 1:
+            return num            
+
+
+
+
+
+if __name__ == '__main__':
+    n = int(input())
+    nums = input().split()
+    nums = [int(i) for i in nums]
+    result = findTheDuplicateNumber(nums)
+    print(result)
