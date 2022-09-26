@@ -1,0 +1,35 @@
+def compress(s: str) -> str:
+    ans = ""
+    count = 1
+    if len(s) == 1:
+        return s
+    for i in range(len(s)-1):
+        if s[i] == s[i+1]:
+            count += 1
+        else:
+            ans += s[i] + str(count)
+            count = 1
+    ans += s[i] + str(count)        
+    
+    if len(ans) >= len(s):
+        return s
+    else:    
+        return ans            
+
+
+    # ptr1, ptr2 = 0, 1
+    # retString = ""
+    
+    # while(ptr2<len(s)):
+    #     count = 0
+    #     if s[ptr1].lower()!=s[ptr2].lower():
+    #         retString += s[ptr1]+str(ptr2-ptr1)
+    #         ptr1=ptr2
+    #     ptr2+=1
+        
+    # return retString + s[ptr1] + str(ptr2-ptr1)
+
+if __name__ == "__main__":
+    s = input().strip()
+    result = compress(s)
+    print(result)
