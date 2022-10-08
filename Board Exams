@@ -1,0 +1,22 @@
+import imp
+from typing import List
+
+def boardExams(n: int, v: List[str]) -> int:
+    counter = 0
+    for i in range(n-1):
+        if(v[i][0]==v[i+1][0] and v[i][-1]==v[i+1][-1]):
+            counter+=1
+    return counter
+
+
+
+    
+
+
+def main():
+    n = int(input())
+    v = input().split()
+    print(boardExams(n, v))
+
+if __name__=="__main__":
+    main()
