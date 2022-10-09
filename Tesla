@@ -1,0 +1,23 @@
+from typing import List
+def tesla(diffs: List[int], n: int) -> List[int]:
+    li = []
+    speed = 0
+    diffs[0] = diffs[0] + 1500
+    for i in diffs:
+        speed += i 
+        li.append(speed)
+    maxList = max(li)
+    minList = li[-1]
+    newLi = [maxList, minList]
+    return newLi
+
+
+def main():
+    n = int(input())
+    diffs = list(map(int,input().split()))
+    ans = tesla(diffs, n)
+    print(ans[0], ans[1])
+
+if __name__=="__main__":
+    main()
+
