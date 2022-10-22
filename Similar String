@@ -1,0 +1,45 @@
+def similarString(n: int, m: int, k: int, s1: str, s2: str) -> str:
+    dict1 = dict()
+    dict2 = dict()
+    keyStore = set()
+    
+    ans = "Yes"
+    s3 = s1.lower()
+    s4 = s2.lower()
+    
+    for s in s3:
+        keyStore.add(s) 
+        if s not in dict1:
+            dict1[s] = 1
+        else:
+            dict1[s] += 1
+    for s in s4:
+        keyStore.add(s)
+        if s not in dict2:
+               dict2[s] = 1
+        else:
+            dict2[s] += 1
+
+    for key in keyStore:
+        a,b = 0,0
+        if key in dict1:
+            a = dict1[key]
+        if key in dict2:
+            b = dict2[key]
+        if abs(a-b) > k:
+            ans = "No"
+
+    return ans                
+         
+    pass
+
+def main():
+    testcases = int(input())
+    for _ in range(testcases):
+        n, m, k = map(int, input().split())
+        s1, s2 = input(), input()
+        ans = similarString(n, m, k, s1, s2)
+        print(ans)
+
+if __name__=="__main__":
+    main()
