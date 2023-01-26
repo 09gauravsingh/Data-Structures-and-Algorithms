@@ -1,0 +1,29 @@
+def reverseWordsInAString(s: str) -> str:
+    result, n, i = "", len(s), 0
+    while i < n:
+        while i < n and s[i] == " ":
+            i += 1      
+        j = i + 1
+        while j < n and s[j] != " ":
+            j += 1
+        word = s[i:j]    
+        if (len(result) == 0):
+            result = word
+        else:
+            result = word + " " + result
+        i = j + 1
+    return result            
+
+
+
+    
+
+def main():
+    s = input()
+    print(reverseWordsInAString(s))
+
+if __name__=="__main__":
+    main()
+
+
+  
