@@ -1,0 +1,18 @@
+def isPermutationPalindrome(s: str) -> bool:
+    li = []
+    for i in range(len(s)):
+        if (s[i] in li):
+            li.remove(s[i])
+        else:
+            li.append(s[i])
+    if (len(s) % 2 == 0 and len(li) == 0 or (len(s) % 2 == 1 and len(li) == 1)):
+        return True
+    else:
+        return False    
+
+
+T = int(input())
+for _t in range(T):
+    s = input().strip()
+    result = isPermutationPalindrome(s)
+    print(result)
