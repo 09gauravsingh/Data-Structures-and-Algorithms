@@ -1,0 +1,24 @@
+from typing import List
+def twoSumInSortedArray(n: int, nums: List[int], target: int) -> bool:
+    DictSum = {}
+    for i, num in enumerate(nums):
+        diff = target - num
+        if diff in DictSum:
+            return [DictSum[diff], i]
+        DictSum[num] = i
+    return []        
+
+
+def main():
+    n = int(input())
+    nums = list(map(int, input().split()))
+    target = int(input())
+    result = twoSumInSortedArray(n, nums, target)
+    if result:
+        print("Present")
+    else:
+        print("Not Present")
+
+if __name__=="__main__":
+    main()
+
