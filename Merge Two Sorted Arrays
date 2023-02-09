@@ -1,0 +1,48 @@
+import imp
+from crio.io import PrintMatrix
+from typing import List
+
+def mergeSortedArray(nums1: List[int], len1: int, nums2: List[int], len2: int) -> List[int]:
+     nums3 = []
+     i, j = 0, 0
+     while ( i < m and j < n):
+          if nums1[i] < nums2[j]:
+               nums3.append(nums1[i])
+               i += 1
+          elif nums1[i] > nums2[j]:
+               nums3.append(nums2[j])
+               j += 1
+          else:
+               nums3.append(nums1[i])
+               i += 1
+     while i < m:
+          nums3.append(nums1[i])
+          i += 1
+     while j < n:
+          nums3.append(nums2[j]) 
+          j += 1
+     return nums3                             
+
+
+if __name__ == '__main__':
+    m = int(input())
+    n = int(input())
+    nums1 = input().split()
+    nums1 = [int(i) for i in nums1]
+    nums2 = input().split()
+    nums2 = [int(i) for i in nums2]
+    res = mergeSortedArray(nums1, len(nums1), nums2, len(nums2))
+    PrintMatrix.OneDMatrix(res, " ")
+
+# Another way to approach.
+  # def mergeSortedArray(nums1: List[int], len1: int, nums2: List[int], len2: int) -> List[int]:
+#      list1 = []
+#      list2 = []
+#      for i in nums1:
+#           list1.append(i)
+#      for j in nums2:
+#           list2.append(j)
+#      list3 = list1 + list2   
+#      list3.sort()
+#      return list3 
+  
