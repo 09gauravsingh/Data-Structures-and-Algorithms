@@ -1,0 +1,23 @@
+from typing import List
+def twoSum(nums: List[int], target: int) -> List[int]:
+    dictSum = {}
+    for i, num in enumerate(nums):
+        diff = target - num
+        if diff in dictSum:
+            return (dictSum[diff], i)          
+        dictSum[num] = i    
+    return 0
+
+
+    
+if __name__ == '__main__':
+    n = int(input())
+    nums = input().split()
+    nums = [int(i) for i in nums]
+    target = int(input())
+    result = twoSum(nums, target)
+    print(result[0],result[1])
+
+
+  
+   
