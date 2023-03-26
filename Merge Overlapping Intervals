@@ -1,0 +1,26 @@
+import imp
+from typing import List
+def mergeIntervals(nums: List[List[int]]) -> List[List[int]]:
+  nums.sort(key=lambda x:x[0])
+  merged = []
+  for num in nums:
+    if not merged or merged[-1][1] < num[0]:
+      merged.append(num)
+    else:
+      merged[-1][1] = max(merged[-1][1], num[1])
+  return merged      
+
+
+if __name__ == '__main__':
+    n = int(input())
+    nums = []
+    for i in range(n):
+        row = input().split()
+        row = [int(i) for i in row]
+        nums.append(row)
+    result = mergeIntervals(nums)
+    for interval in result:
+        print(*interval)
+
+
+#not merged means if merged is empty, means len(merged==0).
