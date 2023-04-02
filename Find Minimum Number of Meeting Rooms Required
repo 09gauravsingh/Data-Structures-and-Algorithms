@@ -1,0 +1,33 @@
+from typing import List
+def meetingRooms(meetings: List[List[int]]) -> int:
+    start = sorted(num[0] for num in meetings)
+    end = sorted(num[1] for num in meetings)
+    
+    res, count = 0, 0
+    s, e = 0, 0
+    while s < len(meetings):
+        if start[s] < end[e]:
+            s += 1
+            count += 1
+        else:
+            e += 1
+            count -= 1
+        res = max(count, res)
+    return res                
+
+    
+    
+
+def main():
+    n = int(input().strip())
+    meetings = list()
+
+    for _ in range(n):
+        meetings.append(list(map(int,input().strip().split())))
+
+    answer = meetingRooms(meetings)
+    print(answer)
+
+if __name__=="__main__":
+    main()
+
