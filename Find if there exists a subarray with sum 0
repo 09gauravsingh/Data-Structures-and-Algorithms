@@ -1,0 +1,25 @@
+import imp
+from typing import List
+
+def subarraySumZero(n: int,arr: List[int]) -> str:
+  result = "No"
+  prefix_sum = 0 
+  set_sum = set()
+  for i in range(0, n):
+    prefix_sum += arr[i]
+    if prefix_sum == 0 or prefix_sum in set_sum:
+      return "Yes"
+    set_sum.add(prefix_sum)  
+	
+  return result
+
+def main():
+	test=int(input())
+	for t in range (test): 
+		n= int(input())
+		arr = list(map(int,input().strip().split()))
+		result=subarraySumZero(n,arr)
+		print(result)
+                
+if __name__ == "__main__":
+    main()
